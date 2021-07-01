@@ -1,0 +1,17 @@
+header{
+	display: flex;	
+	justify-content: space-between;
+	align-items : flex-end;
+	width: 1000px;
+	height: 150px;
+	margin: auto;
+}
+
+#cartouche_user{
+	display: flex;
+	vertical-align: center;	
+	border: 1px red solid;
+	border-radius: 20px;	
+	padding: 5px;
+	
+}
