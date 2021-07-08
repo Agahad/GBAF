@@ -1,0 +1,33 @@
+header{
+	display: flex;	
+	justify-content: space-between;
+	align-items : flex-end;
+	width: 1000px;
+	height: 150px;
+	margin: auto;
+	background: red;
+	font-family: "Trebuchet MS","Arial", "sans-serif";
+}
+
+#logoGBAF{
+	background: white;
+	margin: 0px 0px 10px 10px;
+}
+
+#cartouche_user{
+	border-radius: 20px;	
+	width: 30%;
+	background: white;
+	width : 40%;	
+	margin : 0px 10px 40px 0px;
+}
+
+#cartouche_user ul{
+	display: flex;
+	list-style-type: none;
+
+}
+
+ul li{
+	padding-left: 10px;
+}
