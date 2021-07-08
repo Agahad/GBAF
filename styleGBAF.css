@@ -1,3 +1,36 @@
+#page_connexion{
+	font-family: "Trebuchet MS","Arial", "sans-serif";
+	text-align: center;
+	vertical-align: center;
+	background: red;
+	width: 500px;
+	margin: auto;
+	padding: 5px 5px 5px 5px;
+	color : white;
+}	
+
+#headerconnexion{
+	display: flex;	
+	justify-content: space-between;
+	align-items : flex-end;
+} 
+
+
+#page_connexion #lienmdpoubli {
+	text-align: right;
+	font-size: 0.8em;
+	font-style: italic;
+}
+
+body{
+	width: 1000px;
+	margin: auto;
+	font-family: "Trebuchet MS","Arial", "sans-serif";
+	text-align: justify;
+
+}
+
+
 header{
 	display: flex;	
 	justify-content: space-between;
@@ -9,9 +42,14 @@ header{
 	font-family: "Trebuchet MS","Arial", "sans-serif";
 }
 
+h1{
+	color : red;
+	font-family: "Arial", "sans-serif";
+}
+
 #logoGBAF{
 	background: white;
-	margin: 0px 0px 10px 10px;
+	margin: 10px 10px 10px 10px;
 }
 
 #cartouche_user{
