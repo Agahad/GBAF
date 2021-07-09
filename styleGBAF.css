@@ -73,18 +73,53 @@ ul li{
 
 footer{
 	text-align: center;
+	margin-top: 20px;
 }
 
 footer a{
 	outline: none;
 	text-decoration: none;
-	color : black;
+	color : red;
+}
+
+#Section_Presentation{
+	border-bottom: 2px red solid;
 }
 
 #Section_Presentation .image {
 	background-size: cover;
+	background-position: top;
 	width: 800px;
-	height: 200px;
-	border: 2px red solid;
+	height: 150px;
+	border: 1px red solid;
 	margin-left: 100px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+
+#presentation_acteur{
+	display: flex;
+	justify-content : space-between;
+	align-items : flex-end;
+	border : 1px red solid;
+	padding: 5px;
+}
+#presentation_acteur img{
+	width : 100px;
+}
+
+#lire_la_suite{
+	text-decoration: none;
+	background-color: red;
+	color: white;
+	border-radius: 10px;
+	text-align: bottom;
+	padding: 5px;
+	height: 20px;
+}
+
+#lire_la_suite a{
+	text-decoration: none;
+	color: white;
 }

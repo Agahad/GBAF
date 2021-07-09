@@ -26,7 +26,17 @@
 			<p>Retrouvez ci-dessous la liste des acteurs identifiés par la GBAF. Vous pouvez obtenir davantage d'informations sur chacun d'entre eux et bien entendu partagez vos propres commentaires!</p>
 			<!--Appel BDD acteur-->
 			<!--boucle while pour afficher liste des acteurs-->
-			 
+			<div id="presentation_acteur">
+				<p><img src="images/CDE.png" alt"logo CDE"></p>
+				<div id="texte_acteur">
+					<p><h3>echo acteur</h3></p>
+					<p>echo Description</p>
+					<p><a href="www.nomacteur.fr">site web acteur</a></p><!--demander infos sur lien vers site acteur-->
+				</div>
+				<p><div id="lire_la_suite">
+					<a href="fiche_acteur_xx.php">Lire la suite<a/>
+				</div></p><!--remplacer xx par echo id_acteur-->
+			</div>
 		</div>
 
 	<?php include "footerGBAF.php"
