@@ -1,5 +1,8 @@
-#page_connexion{
+html{
 	font-family: "Trebuchet MS","Arial", "sans-serif";
+}
+
+#page_connexion{
 	text-align: center;
 	vertical-align: center;
 	background: red;
@@ -25,7 +28,6 @@
 body{
 	width: 1000px;
 	margin: auto;
-	font-family: "Trebuchet MS","Arial", "sans-serif";
 	text-align: justify;
 
 }
@@ -39,7 +41,6 @@ header{
 	height: 150px;
 	margin: auto;
 	background: red;
-	font-family: "Trebuchet MS","Arial", "sans-serif";
 }
 
 h1{
@@ -68,4 +69,22 @@ h1{
 
 ul li{
 	padding-left: 10px;
+}
+
+footer{
+	text-align: center;
+}
+
+footer a{
+	outline: none;
+	text-decoration: none;
+	color : black;
+}
+
+#Section_Presentation .image {
+	background-size: cover;
+	width: 800px;
+	height: 200px;
+	border: 2px red solid;
+	margin-left: 100px;
 }

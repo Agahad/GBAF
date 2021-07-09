@@ -19,7 +19,7 @@
 		l'activité bancaire à l’échelle nationale. C’est aussi un interlocuteur privilégié des
 		pouvoirs publics.</p>
 			<p>Ce site vous permet de mieux connaître et faire mieux connaître les partenaires et acteurs du secteur bancaire. Vous pourrez ici donner votre avis sur les produits et services bancaires et financiers et ainsi accroître vos connaissances et les partager.</p>
-			<p><img src="images/illustrationaccueil.jpeg" width:1000 heigth:150></p>
+			<div class="image" style="background-image:url(images/illustrationaccueil.jpeg)"></div>
 		</div>
 		<div id="Section_Acteurs">
 			<p><h2>Présentation des acteurs</h2></p>
