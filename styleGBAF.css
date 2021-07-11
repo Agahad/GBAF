@@ -91,22 +91,45 @@ footer a{
 	background-position: top;
 	width: 800px;
 	height: 150px;
-	border: 1px red solid;
 	margin-left: 100px;
 	border-radius: 5px;
 	margin-bottom: 10px;
+	box-shadow: 2px 2px 4px black;
 }
-
 
 #presentation_acteur{
+	border: 1px red solid;
+	padding: 2px 2px 2px 2px;
+
+}
+
+#cartouche_acteur{
+	width: 95%;
+	height: 150px;
 	display: flex;
-	justify-content : space-between;
-	align-items : flex-end;
+	justify-content: space-between;
+	align-items: center;
 	border : 1px red solid;
 	padding: 5px;
+	background: green;
+	margin: auto;
 }
-#presentation_acteur img{
+#cartouche_acteur img{
 	width : 100px;
+	margin: auto;
+}
+
+#texte_acteur{
+	width: 500px;
+}
+
+#description_acteur{
+	width: 400px;
+	border: 1px solid;
+	padding: 2px 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #lire_la_suite{
@@ -114,9 +137,9 @@ footer a{
 	background-color: red;
 	color: white;
 	border-radius: 10px;
-	text-align: bottom;
 	padding: 5px;
 	height: 20px;
+	margin-top: 100px;
 }
 
 #lire_la_suite a{

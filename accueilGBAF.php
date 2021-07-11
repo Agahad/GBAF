@@ -25,17 +25,21 @@
 			<p><h2>Présentation des acteurs</h2></p>
 			<p>Retrouvez ci-dessous la liste des acteurs identifiés par la GBAF. Vous pouvez obtenir davantage d'informations sur chacun d'entre eux et bien entendu partagez vos propres commentaires!</p>
 			<!--Appel BDD acteur-->
-			<!--boucle while pour afficher liste des acteurs-->
+			
 			<div id="presentation_acteur">
-				<p><img src="images/CDE.png" alt"logo CDE"></p>
-				<div id="texte_acteur">
-					<p><h3>echo acteur</h3></p>
-					<p>echo Description</p>
-					<p><a href="www.nomacteur.fr">site web acteur</a></p><!--demander infos sur lien vers site acteur-->
+				<!--boucle while pour afficher liste des acteurs-->
+				<div id="cartouche_acteur">
+					<p><img src="images/CDE.png" alt"logo CDE"></p>
+					<div id="texte_acteur">
+						<p><h3>echo acteur</h3></p>
+						<div id="description_acteur"><p>La CDE (Chambre Des Entrepreneurs) accompagne les entreprises dans leurs démarches de formation. 
+Son président est élu pour 3 ans par ses pairs, chefs d’entreprises et présidents des CDE.</p></div>
+						<p><a href="www.nomacteur.fr">site web acteur</a></p><!--demander infos sur lien vers site acteur-->
+					</div>
+					<div id="lire_la_suite">
+						<a href="fiche_acteur_xx.php">Lire la suite<a/>
+					</div><!--remplacer xx par echo id_acteur-->
 				</div>
-				<p><div id="lire_la_suite">
-					<a href="fiche_acteur_xx.php">Lire la suite<a/>
-				</div></p><!--remplacer xx par echo id_acteur-->
 			</div>
 		</div>
 
