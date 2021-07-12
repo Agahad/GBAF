@@ -4,20 +4,28 @@
 <html>
 	<head>
 		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="style.css"/> 
+		<link rel="stylesheet" href="styleGBAF.css"/> 
 		<title>GBAF</title>
 	</head>
 	<header>
 	<!-- Insertion du logo GBAF-->
-	<img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF" width=100>
-	<!--Création du cartouche user-->
-		<?php
+	<div id="logoGBAF">
+		<img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF" width=100>
+	</div>
+	<div id="cartouche_user"><!--Création du cartouche user-->
+		<ul>
+			<li><?php
 		// Appel de la BDD User
 		// insérer image Avatar issu de la base de données user
-		?>Bienvenue :
-		<?php
-		echo "Nom Prénom";// insérer Nom et Prénom via echo bdd user
-		?> <a href="moncompte.php">Mon Compte</a> <!--Lien vers paramètre user moncompte.php-->
-		<a href="sedeconnecter.php"><img src="images/sedeconnecter.png" alt="se déconnecter" width=20></a><!--// bouton déconnexion picto off-->	
+				?><a href="moncompte.php">Avatar</a> 
+			</li><!--Lien vers paramètre user moncompte.php-->
+			<li><?php
+				echo "Nom Prénom";// insérer Nom et Prénom via echo bdd user
+				?>
+			</li>
+			<li>
+				<a href="sedeconnecter.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"  width=20></a>
+			</li><!--// bouton déconnexion picto off-->	
+	</div>
 	</header>
 </html>
