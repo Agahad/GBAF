@@ -1,6 +1,73 @@
+/* Charte graphique générale*/
+
 html{
 	font-family: "Trebuchet MS","Arial", "sans-serif";
 }
+
+body{
+	width: 1000px;
+	margin: auto;
+	text-align: justify;
+}
+
+h1{
+	color : red;
+	font-family: "Arial", "sans-serif";
+}
+
+
+/* Header*/
+
+header{
+	display: flex;	
+	justify-content: space-between;
+	align-items : flex-end;
+	width: 1000px;
+	height: 150px;
+	margin: auto;
+	background: red;
+}
+
+#logoGBAF{
+	background: white;
+	margin: 10px 10px 10px 10px;
+}
+
+#cartouche_user{
+	border-radius: 20px;
+	background: white;
+	width : 25%;	
+	margin : 0px 10px 40px 0px;
+}
+
+#cartouche_user ul{
+	display: flex;
+	list-style-type: none;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+#cartouche_user ul li{
+	padding: 0px 5px 0px 5px;
+}
+
+/*Footer*/
+
+footer{
+	text-align: center;
+	margin-top: 20px;
+	padding-top: 5px;
+	border-top: 2px red solid;
+
+}
+
+footer a{
+	outline: none;
+	text-decoration: none;
+	color : red;
+}
+
+/*page Connexion*/
 
 #page_connexion{
 	text-align: center;
@@ -25,62 +92,7 @@ html{
 	font-style: italic;
 }
 
-body{
-	width: 1000px;
-	margin: auto;
-	text-align: justify;
-
-}
-
-
-header{
-	display: flex;	
-	justify-content: space-between;
-	align-items : flex-end;
-	width: 1000px;
-	height: 150px;
-	margin: auto;
-	background: red;
-}
-
-h1{
-	color : red;
-	font-family: "Arial", "sans-serif";
-}
-
-#logoGBAF{
-	background: white;
-	margin: 10px 10px 10px 10px;
-}
-
-#cartouche_user{
-	border-radius: 20px;	
-	width: 30%;
-	background: white;
-	width : 40%;	
-	margin : 0px 10px 40px 0px;
-}
-
-#cartouche_user ul{
-	display: flex;
-	list-style-type: none;
-
-}
-
-ul li{
-	padding-left: 10px;
-}
-
-footer{
-	text-align: center;
-	margin-top: 20px;
-}
-
-footer a{
-	outline: none;
-	text-decoration: none;
-	color : red;
-}
+/* Page Accueil*/
 
 #Section_Presentation{
 	border-bottom: 2px red solid;
@@ -124,7 +136,8 @@ footer a{
 }
 
 #description_acteur{
-	width: 400px;
+	width: 500px;
+	font-size: 0.8em;
 	border: 1px solid;
 	padding: 2px 5px;
 	white-space: nowrap;
@@ -145,4 +158,67 @@ footer a{
 #lire_la_suite a{
 	text-decoration: none;
 	color: white;
+}
+
+/* Page Acteur*/
+
+#pageacteur{
+	margin: 0px 10px 0px 10px ;
+}
+
+#pageacteur_description{
+	border:1px red solid;
+	margin-top: -1px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+
+#pageacteur_description img{
+	max-height: 150px;
+	max-width: 50%;
+	display: block;
+	margin: auto;
+}
+
+#pageacteur_commentaires {
+	border: 1px red solid;
+	padding: 10px;
+}
+
+#entete_commentaires{
+	display: flex;
+	justify-content : space-between;
+	align-items : center;
+	background: green;
+	padding: 10px;
+}
+
+#entete_commentaires form{
+	background: blue;
+	margin : 10px 5px 10px 0px;
+	text-align: right;
+}
+
+
+#entete_commentaires a img{
+	width: 20px;
+	height: 20px;
+	}
+
+#entete_commentaires .poucebas{
+	transform: translate(0px, 7px);
+	}
+
+#entete_commentaires_reactions{
+	display: flex;
+	align-items: center;
+}
+
+
+#cartouche_commentaires{
+	display: block;
+	margin: auto;
+	width: 80%;
+	border: 1px red solid;
+	border-radius: 5px;
 }
