@@ -13,10 +13,7 @@
 	<div id="page_connexion">
 	<body>
 		<!-- En-tête du formulaire-->
-		<div id="headerconnexion">
-		
-			Merci de renseigner votre login et votre mot de passe pour accéder au service GBAF </p>
-		</div>
+		<p>	Merci de renseigner votre login et votre mot de passe pour accéder au service GBAF </p>
 			
 		<!-- Formulaire de connexion-->
 		<form action="accueilGBAF.php" method="POST">
@@ -24,7 +21,8 @@
 			<p><label> Mot de passe : <input type="password" name="mdp"/></label></p>
 			<p><input type="submit" value="Se connecter"></p>
 		</form>
-		<div id="lienmdpoubli"><p><a href="mailto:admin@gbaf.com">Mot de passe oublié?</a></p></div><!--envoi mail automatique avec objet et texte ?-->
+		<div id="lienmdpoubli"><p><a href="mailto:admin@gbaf.com">Mot de passe oublié?</a></p></div><!-- lien vers page question secrète-->
+		<p><em>Première connexion ? <a href="inscriptionGBAF.php">Cliquez ici pour créer votre compte</a></em></p>
 	</body>
 
 	<?php include "footerGBAF.php"
