@@ -11,20 +11,18 @@
 	<header>
 	<!-- Insertion du logo GBAF-->
 		<div id="logoGBAF">
-			<img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF" width=100>
+			<a href="accueilGBAF.php"><img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF"></a>
 		</div>
 		<div id="cartouche_user"><!--Création du cartouche user-->
 			<ul>
-				<li><?php
-			// Appel de la BDD User
-					?><a href="moncompte.php"><img src="images/avatar.png" alt="mon compte" title="Mon Compte" width=80></a> 
-				</li><!--Lien vers paramètre user moncompte.php-->
-				<li><?php
-					echo "Nom Prénom";// insérer Nom et Prénom via echo bdd user
-					?>
+				<li><!--Lien vers paramètre user moncompte.php-->
+					<div class="avatar"><a href="moncompte.php?user=$_SESSION['id_user']"><img src="images/avatar.png" alt="mon compte" title="Mon Compte"></a></div>
+				</li>
+				<li><!--insertion Nom et Prénom de la session-->
+					<div class="nom_user">SESSION['Nomàvkfjgkfjgkjkfjgkfjgjkfjgkjfgkj12345678901234567890'] SESSION['PRENOM']"</div>
 				</li>
 				<li>
-					<a href="connexionGBAF.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"  width=20></a>
+					<div class="sedeconnecter"><a href="connexionGBAF.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"></a></div>
 				</li><!--// bouton déconnexion picto off-->	
 		</div>
 	</header>
