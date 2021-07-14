@@ -9,7 +9,7 @@
 	<header>
 		<!-- Insertion du logo GBAF-->
 		<div id="logoGBAF">
-			<img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF" width=100>
+			<a href="connexionGBAF.php"><img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF" width=100></a>
 		</div>
 	</header>
 </html>
