@@ -6,10 +6,12 @@
 		<link rel="stylesheet" href="styleGBAF.css"/> 
 		<title>GBAF</title>
 	</head>
-	<?php include "headervierge.php" ?>
-
-	<div id="inscriptionGBAF">
-		<body>
+	
+	<body>
+		<?php include "headervierge.php" ?>
+		<h1>Inscription<h1>
+		
+		<div id="inscriptionGBAF">
 			<form  method="post" action="XXXXXXXX.php"><!-- Créer page compte bien crée-->
 				<label for="nom"> Nom </br> <input type="text" name="nom" required /></label></br>
 				<label for="prenom"> Prénom </br> <input type="text" name="prenom" required /></label></br>
@@ -25,8 +27,8 @@
 				<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" required /></label></br>
 				<input type="submit" value="Envoyer">
 			</form>
-		</body>
-	</div>
-	<?php include "footerGBAF.php"
-	?>
+	
+		</div>
+		<?php include "footerGBAF.php" ?>
+	</body>
 </html>

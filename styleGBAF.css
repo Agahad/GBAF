@@ -38,10 +38,14 @@ header{
 	margin: 10px 10px 10px 10px;
 }
 
+#logoGBAF img{
+	width: 100px;
+}
+
 #cartouche_user{
 	border-radius: 20px;
 	background: white;
-	width : 25%;	
+	max-width : 50%;	
 	margin : 20px 10px 20px 0px;
 }
 
@@ -54,9 +58,25 @@ header{
 
 }
 
+.nom_user{
+	max-width: 350px;
+	overflow: hidden;
+}
+
+.avatar img{
+	max-width: 70px;
+}
+
+.sedeconnecter img{
+	max-width: 25px;
+}
+
 #cartouche_user ul li{
 	padding: 0px 5px 0px 5px;
 }
+
+
+
 
 /*Footer*/
 
@@ -139,6 +159,7 @@ footer a{
 
 #presentation_acteur{
 	border: 1px red solid;
+	background-color: red;
 	padding: 2px 2px 2px 2px;
 
 }
@@ -149,24 +170,19 @@ footer a{
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	border : 1px red solid;
+	background: white;
+	border-radius: 5px;
 	padding: 5px;
-	background: green;
-	margin: auto;
+	margin: 10px 15px 10px 20px;
 }
 #cartouche_acteur img{
-	width : 100px;
+	max-width : 150px;
 	margin: auto;
 }
 
-#texte_acteur{
-	width: 500px;
-}
-
-#description_acteur{
-	width: 500px;
-	font-size: 0.8em;
-	border: 1px solid;
+#description_acteur p{
+	width: 600px;
+	font-size: 0.9em;
 	padding: 2px 5px;
 /*insertion ... à la fin de la description*/
 	white-space: nowrap;
@@ -175,9 +191,7 @@ footer a{
 }
 
 #lire_la_suite{
-	text-decoration: none;
 	background-color: red;
-	color: white;
 	border-radius: 10px;
 	padding: 5px;
 	height: 20px;

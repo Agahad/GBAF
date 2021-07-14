@@ -24,6 +24,7 @@ $statut_session = session_status();
 	<div id="page_connexion">
 		<body>
 			<!-- En-tête du formulaire-->
+			<h1>Connexion<h1>
 			<p>	Merci de renseigner votre login et votre mot de passe pour accéder au service GBAF </p>
 				
 			<!-- Formulaire de connexion-->

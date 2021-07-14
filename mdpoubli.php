@@ -9,8 +9,9 @@
 	
 	<body>
 		<?php include "headervierge.php" ?>
+		<h1>Regénération Mot de Passe<h1>
+			
 		<div id="inscriptionGBAF">
-		
 			<p> Merci de renseigner votre login et de répondre à la question secrète afin de renseigner un nouveau mot de passe </p>
 			<form  method="post" action="XXXXXXXX.php"><!-- Vérif Login et Question Secrète-->
 				<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
@@ -26,7 +27,8 @@
 				<input type="submit" value="Envoyer">
 			</form>
 		</div>
-	<?php include "footerGBAF.php" ?>	
+
+		<?php include "footerGBAF.php" ?>	
 	</body>
 	
 </html>

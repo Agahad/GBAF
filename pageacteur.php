@@ -13,11 +13,11 @@ session_start()
 
 	
 	<body>
-	<?php include "header.php" ?>	
+		<?php include "header.php" ?>	
 		<section id="pageacteur">
 			<article id="pageacteur_description">
 			<!-- Appel BDD Acteur-->
-				<p><img src="images/CDE.png" alt"logo CDE"></p>
+				<h1><img src="images/CDE.png" alt"logo CDE"></h1>
 				<h2>Echo Nom Acteur</h2>
 				<p><a href="echo site acteur">echo site acteur</a></p>
 				<p>Echo Contenu Textuel</p>
@@ -43,7 +43,8 @@ session_start()
 				</div>
 			</div>
 		</section>
+		<?php include "footerGBAF.php" ?>
+		
 	</body>
-	<?php include "footerGBAF.php"
-	?>
+
 </html>
