@@ -12,7 +12,6 @@
 		<h1>Régénération Mot de Passe</h1>
 			
 		<section id="inscriptionGBAF">
-			<p> Merci de renseigner votre login et de répondre à la question secrète afin de renseigner un nouveau mot de passe </p>
 			<?php 
 			//On charge la base de données//
 			include "accesBDDGBAF.php";
@@ -21,6 +20,7 @@
 			if(!isset($_POST['login']) AND !isset($_POST['QS']) AND !isset($POST['Reponse_QS']))
 			{
 			?>
+				<p> Merci de renseigner votre login et de répondre à la question secrète afin de régénérer votre nouveau mot de passe </p>
 				<form  method="post" action="mdpoubli.php"><!-- Vérif Login et Question Secrète-->
 					<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
 					<label for="QS">Votre question secrète </br> </label>
@@ -48,6 +48,7 @@
 				{
 
 			?>
+					<p> Merci de renseigner votre login et de répondre à la question secrète afin de régénérer votre nouveau mot de passe </p>
 					<form  method="post" action="mdpoubli.php"><!-- Vérif Login et Question Secrète-->
 						<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
 						<label for="QS">Votre question secrète </br> </label>
@@ -62,33 +63,64 @@
 					<div class="message erreur"><p>Votre login et/ou votre réponse sont erronnés : merci de vérifier vos informations.</p></div>
 				<?php
 				}
+			//sinon on affiche formulaire mot de passe sous condtions//
 				else
 				{ 
-				?> <p>C'est bon mec</p>
-				<?php
-				}
-				?>
 					
-					<!--sinon on affiche formulaire mot de passe sous condtions :-->
-						<!-- si le formulaire est vide, on affiche le formulaire vierge-->
-						<!-- sinonsi le mot de passe est différent du vérif mot de passe, on affiche un message d'erreur-->
-						<!-- sinon on affiche message de succès et modification mot de passe-->
-
-					<!--<form  method="post" action="mdpoubli.php"Vérif Login et Question Secrète-->
-					<!--	<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
+					//si le formulaire est vide, on affiche le formulaire vierge//
+					if(!isset($_POST['password']) AND !isset($_POST['verifpassword']))					
+					{	
+					echo "Vous pouvez changer votre mot de passe";			
+				?>	
+					<form method="post" action="mdpoubli.php">
+						<label for="login"> Login </br> <input type="text" name="login" value=<?php echo $_POST['login']?> required /></label></br>
 						<label for="QS">Votre question secrète </br> </label>
-						<select name="QS" id="QS">
-							<option value="NJFVM">Nom de jeune fille de votre mère</option>
-							<option value="NAC">Nom de votre animal de compagnie</option>
-							<option value="POP">Pour vous, c'est quoi la POP culture?</option>
+						<select name="QS" id="QS" value=<?php $_POST['QS']?> required >
+							<option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
+							<option value="Nom de votre animal de compagnie">Nom de votre animal de compagnie</option>
+							<option value="Pour vous, c'est quoi la POP culture?">Pour vous, c'est quoi la POP culture?</option>
 						</select></br>
-						<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" required /></label></br>
+						<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?> required /></label></br>
 						<label for="password"> Nouveau Mot de Passe </br> <input type="password" name="password" required /></label></br>
 						<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
 						<input type="submit" value="Envoyer">
-				
-					</form>-->
-			<?php } ?>
+					</form>
+					<?php
+					}
+					//sinonsi le mot de passe est différent du vérif mot de passe, on affiche un message d'erreur//
+					elseif ($_POST['password']!==$_POST['verifpassword']) 
+					{
+					echo "Vous pouvez changer votre mot de passe";
+					?>
+						<form method="post" action="mdpoubli.php">
+						<label for="login"> Login </br> <input type="text" name="login" value=<?php echo $_POST['login']?> required /></label></br>
+						<label for="QS">Votre question secrète </br> </label>
+						<select name="QS" id="QS" value=<?php $_POST['QS']?> required >
+							<option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
+							<option value="Nom de votre animal de compagnie">Nom de votre animal de compagnie</option>
+							<option value="Pour vous, c'est quoi la POP culture?">Pour vous, c'est quoi la POP culture?</option>
+						</select></br>
+						<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?> required /></label></br>
+						<label for="password"> Nouveau Mot de Passe </br> <input type="password" name="password" required /></label></br>
+						<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
+						<input type="submit" value="Envoyer">
+						<p>Vous avez renseigné deux mots de passe différents, veuillez réessayer svp</p>
+
+					<?php
+					}
+					else
+					{echo "on verra la suite";
+					}
+					?>	
+					
+					<!-- sinon on affiche message de succès et modification mot de passe-->
+					
+
+
+				<?php 
+				} 
+			}
+				?>
 		<a href="connexionGBAF.php">Retour à la page connexion</a>	
 		</section>
 		
