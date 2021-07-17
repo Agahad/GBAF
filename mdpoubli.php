@@ -100,11 +100,17 @@
 					<?php
 					}
 					else// Sinon on modifie le mot de passe et on affiche un message de succès//
-					{echo "Votre mot de passe a été modifié avec succès";
+					{
+						$req_majmdp = $bdd->prepare('UPDATE account SET password = :nv_password WHERE username = :login_post');
+						$req_majmdp->execute(array(
+							'nv_password' => $_POST['password'],
+							'login_post' => $_POST['login']));
+
+						echo "Votre mot de passe a été modifié avec succès";
+						
 					}
 					?>	
 					
-					<!-- sinon on affiche message de succès et modification mot de passe-->
 					
 
 
