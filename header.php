@@ -1,5 +1,3 @@
-<!-- Intégration d'un suivi de session-->
-
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -19,7 +17,7 @@
 					<div class="avatar"><a href="moncompte.php?user=$_SESSION['id_user']"><img src="images/avatar.png" alt="mon compte" title="Mon Compte"></a></div>
 				</li>
 				<li><!--insertion Nom et Prénom de la session-->
-					<div class="nom_user">SESSION['Nomàvkfjgkfjgkjkfjgkfjgjkfjgkjfgkj12345678901234567890'] SESSION['PRENOM']"</div>
+					<div class="nom_user"><?php echo $_SESSION['Nom'] ." ". $_SESSION['Prenom'] ?></div>
 				</li>
 				<li>
 					<div class="sedeconnecter"><a href="connexionGBAF.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"></a></div>
