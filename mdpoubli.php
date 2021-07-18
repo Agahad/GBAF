@@ -22,14 +22,14 @@
 			?>
 				<p> Merci de renseigner votre login et de répondre à la question secrète afin de régénérer votre nouveau mot de passe </p>
 				<form  method="post" action="mdpoubli.php"><!-- Vérif Login et Question Secrète-->
-					<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
-					<label for="QS">Votre question secrète </br> </label>
+					<label for="login"> Login <br /> <input type="text" name="login" required /></label><br />
+					<label for="QS">Votre question secrète <br /> </label>
 					<select name="QS" id="QS">
 						<option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
 						<option value=">Nom de votre animal de compagnie">Nom de votre animal de compagnie</option>
 						<option value="Pour vous, c'est quoi la POP culture?">Pour vous, c'est quoi la POP culture?</option>
 					</select></br>
-					<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" required /></label></br>
+					<label for="Reponse_QS"> Réponse à la question secrète <br /> <input type="text" name="Reponse_QS" required /></label><br />
 					<input type="submit" value="Envoyer">
 				</form>
 			<?php } 
@@ -50,14 +50,14 @@
 			?>
 					<p> Merci de renseigner votre login et de répondre à la question secrète afin de régénérer votre nouveau mot de passe </p>
 					<form  method="post" action="mdpoubli.php"><!-- Vérif Login et Question Secrète-->
-						<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
-						<label for="QS">Votre question secrète </br> </label>
+						<label for="login"> Login <br /> <input type="text" name="login" required /></label><br />
+						<label for="QS">Votre question secrète <br /> </label>
 						<select name="QS" id="QS">
 							<option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
 							<option value="Nom de votre animal de compagnie">Nom de votre animal de compagnie</option>
 							<option value="Pour vous, c'est quoi la POP culture?">Pour vous, c'est quoi la POP culture?</option>
 						</select></br>
-						<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" required /></label></br>
+						<label for="Reponse_QS"> Réponse à la question secrète <br /> <input type="text" name="Reponse_QS" required /></label><br />
 						<input type="submit" value="Envoyer">
 					</form>
 					<div class="message erreur"><p>Votre login et/ou votre réponse sont erronnés : merci de vérifier vos informations.</p></div>
@@ -74,11 +74,11 @@
 					
 				?>	
 					<form method="post" action="mdpoubli.php">
-						<label for="login"><input type="text" name="login" value=<?php echo $_POST['login']?> hidden /></label></br>
-						<label for="QS"><input type="text" name="QS" value="<?php echo $_POST['QS']?>" hidden/></label></br>
-						<label for="Reponse_QS"><input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?>  hidden/></label></br>
-						<label for="password"> Nouveau Mot de Passe </br> <input type="password" name="password" required /></label></br>
-						<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
+						<label for="login"><input type="text" name="login" value=<?php echo $_POST['login']?> hidden /></label><br />
+						<label for="QS"><input type="text" name="QS" value="<?php echo $_POST['QS']?>" hidden/></label><br />
+						<label for="Reponse_QS"><input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?>  hidden/></label><br />
+						<label for="password"> Nouveau Mot de Passe <br /> <input type="password" name="password" required /></label><br />
+						<label for="verifpassword"> Vérification Mot de Passe <br /> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
 						<input type="submit" value="Envoyer">
 					</form>
 					<?php
@@ -89,11 +89,11 @@
 					echo "Vous pouvez changer votre mot de passe";
 					?>
 						<form method="post" action="mdpoubli.php">
-						<label for="login"><input type="text" name="login" value=<?php echo $_POST['login']?> hidden/></label></br>
-						<label for="QS"><input type="text" name="QS" value="<?php echo $_POST['QS']?>" hidden/></label></br>
-						<label for="Reponse_QS"><input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?> hidden/></label></br>
-						<label for="password"> Nouveau Mot de Passe </br> <input type="password" name="password" required /></label></br>
-						<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
+						<label for="login"><input type="text" name="login" value=<?php echo $_POST['login']?> hidden/></label><br />
+						<label for="QS"><input type="text" name="QS" value="<?php echo $_POST['QS']?>" hidden/></label><br />
+						<label for="Reponse_QS"><input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?> hidden/></label><br />
+						<label for="password"> Nouveau Mot de Passe <br /> <input type="password" name="password" required /></label><br />
+						<label for="verifpassword"> Vérification Mot de Passe <br /> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
 						<input type="submit" value="Envoyer">
 						<p>Vous avez renseigné deux mots de passe différents, veuillez réessayer svp</p>
 
@@ -106,8 +106,8 @@
 							'nv_password' => $_POST['password'],
 							'login_post' => $_POST['login']));
 
-						echo "Votre mot de passe a été modifié avec succès";
-						
+						?><p> Votre mot de passe a été modifié avec succès</p>
+					<?php	
 					}
 					?>	
 					
