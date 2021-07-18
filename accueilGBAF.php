@@ -1,3 +1,20 @@
+<?php
+//On vérifie le statut de la session
+$statut_session = session_status();
+//si pas de session, active, on affiche un message d'erreur
+if (!isset($_SESSION['Nom'])) 
+{
+include "headervierge.php";
+?><p class="messageerreur">Vous devez être connecté pour accéder à cette page</p>
+<p><a href="homepageGBAF.php">Retour page d'accueil</a></p>
+<?php
+}
+//sinon on affiche la page de connexion
+else
+{
+?>
+
+
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -62,4 +79,5 @@
 		<?php include "footerGBAF.php" ?>
 		</div>
 	</body>	
+<?php } ?>
 </html>

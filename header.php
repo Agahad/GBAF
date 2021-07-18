@@ -20,7 +20,7 @@
 					<div class="nom_user"><?php echo $_SESSION['Nom'] ." ". $_SESSION['Prenom'] ?></div>
 				</li>
 				<li>
-					<div class="sedeconnecter"><a href="connexionGBAF.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"></a></div>
+					<div class="sedeconnecter"><a href="homepageGBAF.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"></a></div>
 				</li><!--// bouton déconnexion picto off-->	
 		</div>
 	</header>

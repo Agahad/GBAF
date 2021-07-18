@@ -1,3 +1,15 @@
+<?php
+
+//si une session est active, on la clôture (lien déconnexion)
+if (isset($_SESSION['Nom'])) 
+{
+	$_SESSION=array();
+	session_destroy();
+}
+//sinon on affiche la page
+else
+{
+?>
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -39,7 +51,8 @@
 				$_SESSION['Prenom'] = $resultat['prenom'];
 				include "accueilGBAF.php";
 			}
-		}	
+		}
+}	
 	?>
 	</body>
 </html>
