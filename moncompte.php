@@ -12,8 +12,8 @@ session_start()
 	</head>
 	<body>
 		<?php include "header.php" ?>
-		<h1>Informations sur votre compte<h1>
-		<div id="moncompte">
+		<h1>Informations sur votre compte</h1>
+		<section id="moncompte">
 		
 			<form  method="post" action="moncompte.php"><!-- Créer page compte bien crée-->
 				<label for="nom"> Nom </br> <input type="text" name="nom" required /></label></br>
@@ -31,7 +31,7 @@ session_start()
 				<input type="submit" value="Envoyer">
 			</form>
 		
-		</div>
+		</section>
 		<?php include "footerGBAF.php" ?>
 	</body>
 </html>

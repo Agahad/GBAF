@@ -9,9 +9,9 @@
 	
 	<body>
 		<?php include "headervierge.php" ?>
-		<h1>Inscription<h1>
+		<h1>Inscription</h1>
 		
-		<div id="inscriptionGBAF">
+		<section id="inscriptionGBAF">
 			<form  method="post" action="XXXXXXXX.php"><!-- Créer page compte bien crée-->
 				<label for="nom"> Nom </br> <input type="text" name="nom" required /></label></br>
 				<label for="prenom"> Prénom </br> <input type="text" name="prenom" required /></label></br>
@@ -28,7 +28,7 @@
 				<input type="submit" value="Envoyer">
 			</form>
 	
-		</div>
+		</section>
 		<?php include "footerGBAF.php" ?>
 	</body>
 </html>
