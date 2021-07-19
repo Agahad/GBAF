@@ -1,7 +1,16 @@
 <?php
-session_start()
+session_start();
+if (!isset($_SESSION['Nom'])) 
+{
+include "headervierge.php";
+?><p class="messageerreur">Vous devez être connecté pour accéder à cette page</p>
+<p><a href="homepageGBAF.php">Retour page d'accueil</a></p>
+<?php
+}
+//sinon on affiche la page de connexion
+else
+{
 ?>
-
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -15,12 +24,24 @@ session_start()
 	<body>
 		<?php include "header.php" ?>	
 		<section id="pageacteur">
+		<?php //Appel de la base de données GBAF//
+		include "accesBDDGBAF.php"
+		?>
 			<article id="pageacteur_description">
-			<!-- Appel BDD Acteur-->
-				<h1><img src="images/CDE.png" alt"logo CDE"></h1>
-				<h2>Echo Nom Acteur</h2>
-				<p><a href="echo site acteur">echo site acteur</a></p>
-				<p>Echo Contenu Textuel</p>
+			<?php 
+			//on créé une variable pour récupérer l'ID de l'acteur dans l'URL//
+			$id_acteur=$_GET['acteur'];
+			//On sélectionne les données dans la table acteur en sélectionnant sur la variable id_acteur//
+			$req_acteur=$bdd->prepare('SELECT * FROM acteur where id_acteur = :id_acteur');
+			$req_acteur->execute(array('id_acteur'=>$id_acteur));
+			$reponse_acteur=$req_acteur->fetch();
+
+			?>
+				<!--On affiche les informations demandées sur l'acteur dans la page-->
+				<h1><img src="images/<?php echo $reponse_acteur['logo']?>" alt"logo <?php echo $reponse_acteur['acteur'] ?>"></h1>
+				<h2><?php echo $reponse_acteur['acteur'] ?></h2>
+				<p><a href="www.<?php echo $reponse_acteur['acteur'] ?>.fr">www.<?php echo $reponse_acteur['acteur'] ?>.fr</a></p>
+				<p><?php echo $reponse_acteur['description'] ?></p>
 			</article>
 
 			<div id="pageacteur_commentaires">
@@ -46,5 +67,5 @@ session_start()
 		<?php include "footerGBAF.php" ?>
 		
 	</body>
-
+<?php } ?>
 </html>

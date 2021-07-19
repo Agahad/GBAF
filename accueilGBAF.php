@@ -1,6 +1,4 @@
 <?php
-//On vérifie le statut de la session
-$statut_session = session_status();
 //si pas de session, active, on affiche un message d'erreur
 if (!isset($_SESSION['Nom'])) 
 {
@@ -67,7 +65,7 @@ else
 						</div>
 						<div id="lire_la_suite">
 							<!-- lien vers page fiche_acteur.php avec insertion info $_GET['acteur']=id_acteur-->
-							<a href="fiche_acteur.php?acteur=<?php echo $donnees_acteur['id_acteur']?>">Lire la suite<a/>
+							<a href="pageacteur.php?acteur=<?php echo $donnees_acteur['id_acteur']?>">Lire la suite<a/>
 						</div>
 					</article>
 
