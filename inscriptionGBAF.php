@@ -40,7 +40,7 @@
 				$req=$bdd->prepare('SELECT username from account where username = :login');
 				$req->execute(array('login'=>$_POST['login']));
 				$rep=$req->fetch();
-				//si pas de résultat => le login n'existe pas encore => on affiche message de succès et un lien de redirection vers accueil//
+				//si résultat => le login existe déjà => on affiche message d'erreur//
 				if($rep)
 					{?>
 					<p class="messageerreur">Votre login existe déjà, veuillez le changer svp</p>
@@ -58,7 +58,7 @@
 						</select></br>
 						<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" required /></label></br>
 						<input type="submit" value="Envoyer">
-					</form>-->
+					</form>
 					<?php	
 					}
 
@@ -86,12 +86,22 @@
 					}
 
 
-				//sinon on envoie le formulaire avec message d'erreur pour indiquer de changer de login//
+				//sinon on enregistre le nouvel utilisateur dans la BDD account et on envoie un message de succès//
 				
 				else
-					{	echo "on verra ensuite";
-						
-					
+					{
+					$req_ins=$bdd->prepare('INSERT INTO account(nom, prenom, username, password, question, reponse) VALUES (:nom, :prenom, :username, :password, :question, :reponse) ');
+					$req_ins->execute(array(
+						'nom'=>$_POST['nom'],
+						'prenom'=>$_POST['prenom'],
+						'username'=>$_POST['login'],
+						'password'=>$_POST['password'],
+						'question'=>$_POST['QS'],
+						'reponse'=>$_POST['Reponse_QS']));
+					?>
+					<p class="messagesucces">Votre compte a bien été créé</p>
+					<p><a href="homepageGBAF.php">Retour page d'accueil</a>
+					<?php
 					}
 				}
 					
