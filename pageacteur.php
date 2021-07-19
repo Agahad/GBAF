@@ -25,12 +25,12 @@ else
 		<?php include "header.php" ?>	
 		<section id="pageacteur">
 		<?php //Appel de la base de données GBAF//
-		include "accesBDDGBAF.php"
+		include "accesBDDGBAF.php";
+		//récupération de l'id de l'acteur dans l'URL dans une variable//
+		$id_acteur=$_GET['acteur'];
 		?>
 			<article id="pageacteur_description">
 			<?php 
-			//on créé une variable pour récupérer l'ID de l'acteur dans l'URL//
-			$id_acteur=$_GET['acteur'];
 			//On sélectionne les données dans la table acteur en sélectionnant sur la variable id_acteur//
 			$req_acteur=$bdd->prepare('SELECT * FROM acteur where id_acteur = :id_acteur');
 			$req_acteur->execute(array('id_acteur'=>$id_acteur));
@@ -45,14 +45,12 @@ else
 			</article>
 
 			<div id="pageacteur_commentaires">
-			<!-- Appel BDD Commentaires-->
+			<!-- On sélectionne la table commentaire en fitrant sur l'id acteur-->
+
 				<div id="entete_commentaires">
-					<p><strong>'echo id_commentaire' Commentaire(s)</strong></p>
+					<p><strong>'Compteur post where post.id_acteur=$id_acteur' Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
-						<form action="pageacteur.php" method="post">
-							<textarea name="commentaire" placeholder="Votre commentaire..." rows="4" cols="35"></textarea>
-							<p><input type="submit" value="Envoyer"/></p>
-						</form>
+						<p class="bouton"><a href="newpostGBAF.php?acteur=<?php echo $id_acteur ?>">Ajouter un commentaire</a></p>
 						<p>XX <a href="ajout 1 like"><img src="images/poucehaut.png" title="j'aime"></a> <a href="ajout 1 like"><img class="poucebas" src="images/poucebas.png" title="je n'aime plus"></a></p>
 					</div>
 				</div>
