@@ -93,7 +93,17 @@ else
 							<input type="submit" value ="Ajouter un commentaire">
 						</form>
 						<!--On ajoute nombre de like/bouton pour ajouter un like/nombre de dislike/bouton pour ajouter un dislike voir cahier pour code-->
-						<p>XX <a href="ajout 1 like"><img src="images/poucehaut.png" title="j'aime"></a> <a href="ajout 1 like"><img class="poucebas" src="images/poucebas.png" title="je n'aime plus"></a></p>
+						<p>X</p>
+						<!-- on insère un bouton like qui enverra un post = like à la page-->
+						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
+							<input type="text" value="like" hidden>
+							<input class="like" type="submit" value=""/>
+						</form>
+						<p>X</p>
+						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
+							<input type="text" value="dislike" hidden>
+							<input class="dislike" type="submit" value=""/>
+						</form>
 					</div>
 				</div>
 				<div class="newpost">
