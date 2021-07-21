@@ -26,7 +26,8 @@ else
 	<body>
 		<?php include "header.php" ?>	
 		<section id="pageacteur">
-		<?php //Appel de la base de données GBAF//
+		<?php 
+		//Appel de la base de données GBAF//
 		include "accesBDDGBAF.php";
 		//récupération de l'id de l'acteur dans l'URL dans une variable//
 		$id_acteur=$_GET['acteur'];
@@ -51,7 +52,23 @@ else
 
 				<div id="entete_commentaires">
 					<!-- on indique le nombre de commentaires sur la page acteur en cours-->
-					<p><strong>'Compteur post where post.id_acteur=$id_acteur' Commentaire(s)</strong></p>
+					<?php
+					//on sélectionne la table post en filtrant sur l'id acteur//
+					$req_post=$bdd->prepare('SELECT * from post where id_acteur=:id_acteur');
+					$req_post->execute(array('id_acteur'=>$id_acteur));
+					//on envoie les réponses correspondantes dans une variable//;
+					$rep_post=$req_post->fetch();
+					//si il n'y a pas de correspondance, c'est que le compteur doit être à 0//
+					if(!$rep_post)
+						{$req_compteurpost=0;}
+					//sinon on compte le nombre de commentaires que l'on envoie dans une variable//
+					else
+					{
+						$req_compteurpost=$bdd->prepare('SELECT count(*) FROM post where id_acteur=:id_acteur');
+						$req_compteurpost->exec(array('id_acteur'=>$id_acteur));
+					}
+					?>
+					<p><strong><?php echo $req_compteurpost?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
 						<!--on insère un bouton permettant l'ajout d'un nouveau commentaire sur la page en cours-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" class="bouton">
@@ -66,7 +83,7 @@ else
 					<?php
 					if(isset($_POST['addpost']))
 					{
-						?><form method="post" action="pageacteur.php?acteur=$id_acteur">
+						?><form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
 							<label for="newpost">Votre Commentaire :</label><br />
 							<textarea rows="5" cols="80" id="post" name="newpost" required /></textarea><br />
 							<input type="submit" value="Partager votre commentaire">
