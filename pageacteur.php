@@ -114,15 +114,14 @@ else
 					?>
 				</div>
 					<?php //on sélectionne les données des tables post (le post et la date) et account (prénom) en filtrant sur l'acteur en question//
-					$req_post2=$bdd->prepare('SELECT post.post AS pp, post.date_add AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur');
+					$req_post2=$bdd->prepare('SELECT post.post AS pp, date_format (post.date_add, "%d/%m/%Y") AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur');
 					$req_post2->execute(array('id_acteur'=>$id_acteur));
 					while($rep_post2=$req_post2->fetch())
 					{ 
 						//on insère les commentaires avec les réponses envoyées dans l'array de la variable $rep_post en faisant des jonctions entre tables//
 						?>
 						<div class="cartouche_commentaires">
-						<p><?php echo $rep_post2['ap']?></p>
-						<p><?php Echo $rep_post2['pda']?></p>
+						<p><?php echo $rep_post2['ap'] ." le ". $rep_post2['pda']?></p>
 						<p><?php Echo $rep_post2['pp']?></p>
 						</div>
 						<?php
