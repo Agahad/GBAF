@@ -84,6 +84,7 @@ else
 						$rep_compteurpost=$req_compteurpost->execute(array('id_acteur'=>$id_acteur));
 					}
 					?>
+					<!-- on écit le nombre de commentaire(s) pour cet acteur en utilisant la variable $rep_compteurpost qui renvoie 0 si aucun comm sur cet acteur-->
 					<p><strong><?php echo $rep_compteurpost ?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
 						<!--on insère un bouton permettant l'ajout d'un nouveau commentaire sur la page en cours-->
@@ -97,8 +98,9 @@ else
 				</div>
 				<div class="newpost">
 					<?php
+					//on vérifie si une demande de nouveau commentaire a été envoyée//
 					if(isset($_POST['addpost']))
-					{
+					{//si oui, on insère un formulaire pour poster un nouveau commentaire//
 						?><form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
 							<label for="newpost">Votre Commentaire :</label><br />
 							<textarea rows="5" cols="80" id="post" name="newpost" required /></textarea><br />
@@ -107,18 +109,25 @@ else
 						<?php			
 					}
 					else
-					{
+					{//sinon rien//
 					}
 					?>
 				</div>
-
-				<div class="cartouche_commentaires">
-					
-					<!--boucle while-->
-					<p>Echo Prenom</p>
-					<p>Echo date</p>
-					<p> Echo texte commentaire</p>
-				</div>
+					<?php //on sélectionne les données des tables post (le post et la date) et account (prénom) en filtrant sur l'acteur en question//
+					$req_post2=$bdd->prepare('SELECT post.post AS pp, post.date_add AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur');
+					$req_post2->execute(array('id_acteur'=>$id_acteur));
+					while($rep_post2=$req_post2->fetch())
+					{ 
+						//on insère les commentaires avec les réponses envoyées dans l'array de la variable $rep_post en faisant des jonctions entre tables//
+						?>
+						<div class="cartouche_commentaires">
+						<p><?php echo $rep_post2['ap']?></p>
+						<p><?php Echo $rep_post2['pda']?></p>
+						<p><?php Echo $rep_post2['pp']?></p>
+						</div>
+						<?php
+					}
+					?>		
 			</article>
 		</section>
 		<?php include "footerGBAF.php" ?>
