@@ -76,15 +76,15 @@ else
 					$rep_post=$req_post->fetch();
 					//si il n'y a pas de correspondance, c'est que le compteur doit être à 0//
 					if(!$rep_post)
-						{$req_compteurpost=0;}
+						{$rep_compteurpost=0;}
 					//sinon on compte le nombre de commentaires que l'on envoie dans une variable//
 					else
 					{
-						//$req_compteurpost=$bdd->prepare('SELECT count(*) FROM post where id_acteur=:id_acteur');//
-						//$req_compteurpost->exec(array('id_acteur'=>$id_acteur));//
+						$req_compteurpost=$bdd->prepare('SELECT COUNT(*) FROM post where id_acteur=:id_acteur');
+						$rep_compteurpost=$req_compteurpost->execute(array('id_acteur'=>$id_acteur));
 					}
 					?>
-					<p><strong><?php// echo $req_compteurpost//?> Commentaire(s)</strong></p>
+					<p><strong><?php echo $rep_compteurpost ?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
 						<!--on insère un bouton permettant l'ajout d'un nouveau commentaire sur la page en cours-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" class="bouton">
