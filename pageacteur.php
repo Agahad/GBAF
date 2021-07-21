@@ -48,7 +48,23 @@ else
 			</article>
 
 			<article id="pageacteur_commentaires">
-			<!-- On sélectionne la table commentaire en fitrant sur l'id acteur-->
+				<!-- on commence par vérifier si un nouveau commentaire a été envoyé-->
+				<?php 
+				if(isset($_POST['newpost']))
+					{//si oui, on insère le nouveau commentaire dans la base//
+					$req_addpost=$bdd->prepare('INSERT INTO post (id_user, id_acteur, date_add, post) value(:id_user, :id_acteur, :date_add, :post)');
+					$req_addpost->execute(array(
+						'id_user'=>$_SESSION['id'],
+						'id_acteur'=>$id_acteur,
+						'date_add'=>date("Y-m-d"),
+						'post'=>$_POST['newpost']));
+					}
+					//sinon on ne fait rien//
+				else{}
+				?>
+
+
+				<!-- On sélectionne la table commentaire en fitrant sur l'id acteur-->
 
 				<div id="entete_commentaires">
 					<!-- on indique le nombre de commentaires sur la page acteur en cours-->
@@ -64,11 +80,11 @@ else
 					//sinon on compte le nombre de commentaires que l'on envoie dans une variable//
 					else
 					{
-						$req_compteurpost=$bdd->prepare('SELECT count(*) FROM post where id_acteur=:id_acteur');
-						$req_compteurpost->exec(array('id_acteur'=>$id_acteur));
+						//$req_compteurpost=$bdd->prepare('SELECT count(*) FROM post where id_acteur=:id_acteur');//
+						//$req_compteurpost->exec(array('id_acteur'=>$id_acteur));//
 					}
 					?>
-					<p><strong><?php echo $req_compteurpost?> Commentaire(s)</strong></p>
+					<p><strong><?php// echo $req_compteurpost//?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
 						<!--on insère un bouton permettant l'ajout d'un nouveau commentaire sur la page en cours-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" class="bouton">
