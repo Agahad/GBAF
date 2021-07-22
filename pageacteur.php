@@ -96,20 +96,49 @@ else
 						</form>
 						<!--PARTIE LIKE/DISLIKE-->
 						<!--On ajoute nombre de like/bouton pour ajouter un like/nombre de dislike/bouton pour ajouter un dislike-->
+						<!-- AJOUT ou MAJ d'un LIKE/DISLIKE-->
 						<?php //on commence par sélectionner la table vote en filtrant sur id_acteur et id_user//
 							$req_vote=$bdd->prepare('SELECT vote from vote where id_user=:id_user AND id_acteur=:id_acteur');
 							$req_vote->execute(array(
 								'id_user'=>$_SESSION['id'],
 								'id_acteur'=>$id_acteur));
 							$rep_vote=$req_vote->fetch();
+							//on va ensuite vérifier l'existence de $_POST['like'] et de $rep_vote//
+							//si $rep_vote n'existe pas et que $_POST existe => on insère le (dis)like dans la table//
+							
+							if(!$rep_vote AND isset($_POST['like']))
+								{
+									$req_vote_ins=$bdd->prepare('INSERT INTO vote (vote, id_user, id_acteur) values (:vote, :id_user, :id_acteur)');
+									$req_vote_ins->execute(array(
+										'vote'=>$_POST['like'],
+										'id_user'=>$_SESSION['id'],
+										'id_acteur'=>$id_acteur));
+								}
+							//sinon si $rep_vote et $_POST existent, on met à jour la table//
+							elseif($rep_vote AND isset($_POST['like']))
+								{
+									$req_vote_maj=$bdd->prepare('UPDATE vote set vote=:vote where id_user=:id_user AND id_acteur=:id_acteur');
+									$req_vote_maj->execute(array(
+										'vote'=>$_POST['like'],
+										'id_user'=>$_SESSION['id'],
+										'id_acteur'=>$id_acteur));
+								} 
+							//sinon on ne fait rien//
+							else{}
 						?>
-						<p>X</p>
+						<!--Comteur de like/dislike-->
+							<?php
+							$req_vote_count=$bdd->prepare('SELECT COUNT(*) from vote where vote=:vote');
+							$rep_like=$req_vote_count->execute(array('vote'=>'like'));
+							$rep_dislike=$req_vote_count->execute(array('vote'=>'dislike'));
+							?>
+						<p><?php echo $rep_like?></p>
 						<!-- on insère un bouton like qui enverra un post = like à la page-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
 							<input type="text" name="like" value="like" hidden>
 							<input id="like" class="pouce" type="submit" value=""/>
 						</form>
-						<p>X</p>
+						<p><?php echo $rep_dislike?></p>
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
 							<input type="text" name="like" value="dislike" hidden>
 							<input id="dislike" class="pouce" type="submit" value=""/>
