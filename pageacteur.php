@@ -58,6 +58,8 @@ else
 						'id_acteur'=>$id_acteur,
 						'date_add'=>date("Y-m-d"),
 						'post'=>$_POST['newpost']));
+					header('location: pageacteur.php?acteur='.$id_acteur);
+					exit();
 					}
 					//sinon on ne fait rien//
 				else{}
@@ -67,7 +69,7 @@ else
 				<!-- On sélectionne la table commentaire en fitrant sur l'id acteur-->
 
 				<div id="entete_commentaires">
-					<!-- on indique le nombre de commentaires sur la page acteur en cours-->
+					<!--COMPTEUR COMMENTAIRES-->
 					<?php
 					//on sélectionne la table post en filtrant sur l'id acteur//
 					$req_post=$bdd->prepare('SELECT * from post where id_acteur=:id_acteur');
@@ -87,22 +89,30 @@ else
 					<!-- on écit le nombre de commentaire(s) pour cet acteur en utilisant la variable $rep_compteurpost qui renvoie 0 si aucun comm sur cet acteur-->
 					<p><strong><?php echo $rep_compteurpost ?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
-						<!--on insère un bouton permettant l'ajout d'un nouveau commentaire sur la page en cours-->
+						<!--BOUTON NOUVEAU COMMENTAIRE-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" class="bouton">
 							<input type="text" value="1" name="addpost" hidden>
 							<input type="submit" value ="Ajouter un commentaire">
 						</form>
-						<!--On ajoute nombre de like/bouton pour ajouter un like/nombre de dislike/bouton pour ajouter un dislike voir cahier pour code-->
+						<!--PARTIE LIKE/DISLIKE-->
+						<!--On ajoute nombre de like/bouton pour ajouter un like/nombre de dislike/bouton pour ajouter un dislike-->
+						<?php //on commence par sélectionner la table vote en filtrant sur id_acteur et id_user//
+							$req_vote=$bdd->prepare('SELECT vote from vote where id_user=:id_user AND id_acteur=:id_acteur');
+							$req_vote->execute(array(
+								'id_user'=>$_SESSION['id'],
+								'id_acteur'=>$id_acteur));
+							$rep_vote=$req_vote->fetch();
+						?>
 						<p>X</p>
 						<!-- on insère un bouton like qui enverra un post = like à la page-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
-							<input type="text" value="like" hidden>
-							<input class="like" type="submit" value=""/>
+							<input type="text" name="like" value="like" hidden>
+							<input id="like" class="pouce" type="submit" value=""/>
 						</form>
 						<p>X</p>
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
-							<input type="text" value="dislike" hidden>
-							<input class="dislike" type="submit" value=""/>
+							<input type="text" name="like" value="dislike" hidden>
+							<input id="dislike" class="pouce" type="submit" value=""/>
 						</form>
 					</div>
 				</div>
