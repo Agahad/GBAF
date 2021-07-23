@@ -58,6 +58,7 @@ else
 						'id_acteur'=>$id_acteur,
 						'date_add'=>date("Y-m-d"),
 						'post'=>$_POST['newpost']));
+					//$nb_post_echo $id_acteur=$nb_post_echo $id_acteur+1 à tester//
 					header('location: pageacteur.php?acteur='.$id_acteur);
 					exit();
 					}
@@ -82,7 +83,7 @@ else
 					//sinon on compte le nombre de commentaires que l'on envoie dans une variable//
 					else
 					{
-						$req_compteurpost=$bdd->prepare('SELECT COUNT(*) FROM post where id_acteur=:id_acteur');
+						$req_compteurpost=$bdd->prepare('SELECT COUNT(id_post) FROM post where id_acteur=:id_acteur');
 						$rep_compteurpost=$req_compteurpost->execute(array('id_acteur'=>$id_acteur));
 					}
 					?>
@@ -163,7 +164,7 @@ else
 					?>
 				</div>
 					<?php //on sélectionne les données des tables post (le post et la date) et account (prénom) en filtrant sur l'acteur en question//
-					$req_post2=$bdd->prepare('SELECT post.post AS pp, date_format (post.date_add, "%d/%m/%Y") AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur');
+					$req_post2=$bdd->prepare('SELECT post.post AS pp, date_format (post.date_add, "%d/%m/%Y") AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur ORDER BY pda DESC');
 					$req_post2->execute(array('id_acteur'=>$id_acteur));
 					while($rep_post2=$req_post2->fetch())
 					{ 
