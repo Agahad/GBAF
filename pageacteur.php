@@ -152,8 +152,12 @@ else
 				</div>
 				<div class="newpost">
 					<?php
-					//on vérifie si une demande de nouveau commentaire a été envoyée//
-					if(isset($_POST['addpost']))
+					//on charge les données relatives aux posts pour l'user et l'acteur en cours//
+					$req_post_user=$bdd->prepare('SELECT post from post where id_user=:id_user AND id_acteur=:id_acteur');
+					$req_post_user->execute(array('id_user'=>$_SESSION['id'], 'id_acteur'=>$id_acteur));
+					$rep_post_user=$req_post_user->fetch();
+					//on vérifie si une demande de nouveau commentaire a été envoyée et si l'user n'a pas déjà posté de commentaire//
+					if(isset($_POST['addpost']) and !$rep_post_user)
 					{//si oui, on insère un formulaire pour poster un nouveau commentaire//
 						?><form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
 							<label for="newpost">Votre Commentaire :</label><br />
@@ -162,12 +166,17 @@ else
 						</form>	
 						<?php			
 					}
+					//si l'user a déjà posté un commentaire, on lui signale qu'il ne peut pas en poster un second//
+					elseif (isset($_POST['addpost']) and $rep_post_user) {
+						?><p class="messageerreur">Vous avez déjà partager un commentaire pour cet acteur</p>
+					<?php
+					}
 					else
 					{//sinon rien//
 					}
 					?>
 				</div>
-					<?php //on sélectionne les données des tables post (le post et la date) et account (prénom) en filtrant sur l'acteur en question//
+					<?php //on sélectionne les données des tables post (le post et la date) et account (prénom) en filtrant sur l'acteur en question et sur l'id_user (correspondance entre le user et le post)//
 					$req_post2=$bdd->prepare('SELECT post.post AS pp, date_format (post.date_add, "%d/%m/%Y") AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur ORDER BY post.id_post DESC');
 					$req_post2->execute(array('id_acteur'=>$id_acteur));
 					while($rep_post2=$req_post2->fetch())
