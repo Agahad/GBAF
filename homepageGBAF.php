@@ -1,15 +1,3 @@
-<?php
-
-//si une session est active, on la clôture (lien déconnexion)
-if (isset($_SESSION['Nom'])) 
-{
-	$_SESSION=array();
-	session_destroy();
-}
-//sinon on affiche la page
-else
-{
-?>
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -28,15 +16,16 @@ else
 		{include "connexionGBAF.php";
 		 include "footerGBAF.php";
 		}
-//sinon, on charge les données filtrées sur le user
+//sinon, on charge les données filtrées sur le user et on créé une variable pour vérifier le password hashé//
 	else{
 		include "accesBDDGBAF.php";
 		$req = $bdd->prepare('SELECT * FROM account WHERE username = :login');
 		$req->execute(array('login' => $_POST['login']));
 		$resultat=$req->fetch();
+		$isPasswordCorrect=password_verify($_POST['mdp'], $resultat['password']);
 
 			//si le user n'existe pas ou si le mdp est incorrect => on affiche formulaire de connexion + message erreur + footer//
-			if(!$resultat OR $resultat['password']!==$_POST['mdp'])
+			if(!$resultat OR !$isPasswordCorrect)
 			{
 				include "connexionGBAF.php";
 				?><p class="messagerreur">Votre login et/ou votre mot de passe sont incorrects</p>
@@ -47,12 +36,16 @@ else
 			else		
 			{
 				session_start();
+				$_SESSION['id'] = $resultat['id_user'];
 				$_SESSION['Nom'] = $resultat['nom'];
 				$_SESSION['Prenom'] = $resultat['prenom'];
+				$_SESSION['login'] = $resultat['username'];
+				$_SESSION['question'] = $resultat['question'];
+				$_SESSION['reponse'] = $resultat['reponse'];
 				include "accueilGBAF.php";
 			}
 		}
-}	
+	
 	?>
 	</body>
 </html>

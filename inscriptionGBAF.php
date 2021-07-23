@@ -24,9 +24,9 @@
 					<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
 					<label for="QS">Choisissez une question secrète </br> </label>
 					<select name="QS" id="QS">
-						<option value="NJFVM">Nom de jeune fille de votre mère</option>
-						<option value="NAC">Nom de votre animal de compagnie</option>
-						<option value="POP">Pour vous, c'est quoi la POP culture?</option>
+						<option value="Nom de jeune fille de votre mère">Nom de jeune fille de votre mère</option>
+						<option value="Nom de votre animal de compagnie">Nom de votre animal de compagnie</option>
+						<option value="Pour vous, c'est quoi la POP culture?">Pour vous, c'est quoi la POP culture?</option>
 					</select></br>
 					<label for="Reponse_QS"> Réponse à la question secrète </br> <input type="text" name="Reponse_QS" required /></label></br>
 					<input type="submit" value="Envoyer">
@@ -90,18 +90,21 @@
 				
 				else
 					{
+					//Hashage du mot de passe//
+					$pass_hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
+
 					$req_ins=$bdd->prepare('INSERT INTO account(nom, prenom, username, password, question, reponse) VALUES (:nom, :prenom, :username, :password, :question, :reponse) ');
 					$req_ins->execute(array(
 						'nom'=>$_POST['nom'],
 						'prenom'=>$_POST['prenom'],
 						'username'=>$_POST['login'],
-						'password'=>$_POST['password'],
+						'password'=>$pass_hash,
 						'question'=>$_POST['QS'],
 						'reponse'=>$_POST['Reponse_QS']));
 					?>
-					<p class="messagesucces">Votre compte a bien été créé</p>
-					<p><a href="homepageGBAF.php">Retour page d'accueil</a>
-					<?php
+					<p class="messagesucces">Votre compte a bien été créé, vous allez être redirigé vers la page d'accueil</p>
+					<?php header("refresh:3; url=homepageGBAF.php");
+					
 					}
 				}
 					
