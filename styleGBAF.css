@@ -20,6 +20,15 @@ strong{
 	font-size: 1.5em;
 }
 
+.messageerreur{
+	color:red;
+	text-align: center;
+	font-size: 1.2em;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+
 
 /* Header*/
 
@@ -112,9 +121,10 @@ footer a{
 	width: 100%;
 }
 
-/*page inscription*/
 
-#inscriptionGBAF{
+/*Formulaire GBAF - pages mdpoubli / inscription / moncompte */
+
+.formulaireGBAF{
 	text-align: center;
 	vertical-align: center;
 	width: 100%;
@@ -122,18 +132,18 @@ footer a{
 }
 
 
-#inscriptionGBAF form{
+.formulaireGBAF form{
 	text-align: left;
 	margin-left: 33%;
 }
 
 
-#inscriptionGBAF form input{
+.formulaireGBAF form input{
 	width: 40%;
 	margin-bottom: 10px;
 }
 
-#inscriptionGBAF form select{
+.formulaireGBAF form select{
 	width: 40%;
 	margin-bottom: 10px;
 }
@@ -244,10 +254,6 @@ footer a{
 	margin-bottom: -20px;
 	border-radius: 5px;}
 
-#entete_commentaires a img{
-	width: 20px;
-	height: 20px;
-	}
 
 #entete_commentaires .poucebas{
 	transform: translate(0px, 7px);
@@ -258,15 +264,44 @@ footer a{
 	align-items: center;
 }
 
-#cartouche_commentaires{
+.cartouche_commentaires{
 	display: block;
 	margin: auto;
 	width: 80%;
 	border: 1px red solid;
 	border-radius: 5px;
 	padding: 5px;
+	margin-bottom: 5px;
 }
+
+.newpost{
+	display: block;
+	margin: auto;
+	width: 80%;
+	padding: 5px;
+	margin-bottom: 5px;
+}
+
 
 #sedeconnecter{
 	text-align: center;
+}
+
+input.pouce{
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: white;
+	background-image: url("images/poucehaut.png");
+	background-position: top;
+	border :none;
+	width: 20px;
+	height: 20px;	
+}
+
+input#dislike{
+	background-image: url("images/poucebas.png");
+}
+
+input#like{
+	background-image: url("images/poucehaut.png");
 }
