@@ -119,16 +119,7 @@ else
 										'id_user'=>$_SESSION['id'],
 										'id_acteur'=>$id_acteur));
 								}
-							//sinon si $rep_vote et $_POST existent, on met à jour la table//
-							elseif($rep_vote AND isset($_POST['like']))
-								{
-									$req_vote_maj=$bdd->prepare('UPDATE vote set vote=:vote where id_user=:id_user AND id_acteur=:id_acteur');
-									$req_vote_maj->execute(array(
-										'vote'=>$_POST['like'],
-										'id_user'=>$_SESSION['id'],
-										'id_acteur'=>$id_acteur));
-								} 
-							//sinon on ne fait rien//
+							//sinon on ne fait rien => on ne peut pas changer son vote//
 							else{}
 						?>
 						<!--Comteur de like/dislike-->
