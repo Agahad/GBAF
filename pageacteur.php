@@ -79,7 +79,7 @@ else
 					$rep_post=$req_post->fetch();
 					//si il n'y a pas de correspondance, c'est que le compteur doit être à 0//
 					if(!$rep_post)
-						{$compteurpost=0;}
+						{$compteur_post=0;}
 					//sinon on compte le nombre de commentaires que l'on envoie dans une variable//
 					else
 					{
@@ -95,9 +95,9 @@ else
 					<p><strong><?php echo $compteur_post ?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
 						<!--BOUTON NOUVEAU COMMENTAIRE-->
-						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" class="bouton">
+						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" >
 							<input type="text" value="1" name="addpost" hidden>
-							<input type="submit" value ="Ajouter un commentaire">
+							<input class="bouton" type="submit" value ="Ajouter un commentaire">
 						</form>
 						<!--PARTIE LIKE/DISLIKE-->
 						<!--On ajoute nombre de like/bouton pour ajouter un like/nombre de dislike/bouton pour ajouter un dislike-->
@@ -133,21 +133,36 @@ else
 						?>
 						<!--Comteur de like/dislike-->
 							<?php
-							$req_vote_count=$bdd->prepare('SELECT COUNT(*) from vote where vote=:vote');
-							$rep_like=$req_vote_count->execute(array('vote'=>'like'));
-							$rep_dislike=$req_vote_count->execute(array('vote'=>'dislike'));
+							//on définit les compteurs like et dislike à 0//
+							$compteur_like=0;
+							$compteur_dislike=0;
+							//on détetrmine le nombre like avec une requête et une boucle//
+							$req_like_count=$bdd->prepare("SELECT vote from vote where vote='like' AND id_acteur=:id_acteur");
+							$req_like_count->execute(array('id_acteur'=>$id_acteur));
+							while($req_like_count->fetch())
+								{$compteur_like=$compteur_like+1;}
+
+							//on détetrmine le nombre like avec une requête et une boucle//
+							$req_dislike_count=$bdd->prepare("SELECT vote from vote where vote='dislike' AND id_acteur=:id_acteur");
+							$req_dislike_count->execute(array('id_acteur'=>$id_acteur));
+							while($req_dislike_count->fetch())
+								{$compteur_dislike=$compteur_dislike+1;}
+							
 							?>
-						<p><?php echo $rep_like?></p>
-						<!-- on insère un bouton like qui enverra un post = like à la page-->
-						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
-							<input type="text" name="like" value="like" hidden>
-							<input id="like" class="pouce" type="submit" value=""/>
-						</form>
-						<p><?php echo $rep_dislike?></p>
-						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
-							<input type="text" name="like" value="dislike" hidden>
-							<input id="dislike" class="pouce" type="submit" value=""/>
-						</form>
+						<div id="like_dislike">
+							<!--on affiche le nombre de like puis le bouton ajout like (puis idem pour dislike)-->
+							<p><?php echo $compteur_like ?></p>
+							<!-- on insère un bouton like qui enverra un post = like à la page-->
+							<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
+								<input type="text" name="like" value="like" hidden>
+								<input id="like" class="pouce" type="submit" value=""/>
+							</form>
+							<p><?php echo $compteur_dislike ?></p>
+							<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>">
+								<input type="text" name="like" value="dislike" hidden>
+								<input id="dislike" class="pouce" type="submit" value=""/>
+							</form>
+						</div>
 					</div>
 				</div>
 				<div class="newpost">
@@ -168,7 +183,7 @@ else
 					}
 					//si l'user a déjà posté un commentaire, on lui signale qu'il ne peut pas en poster un second//
 					elseif (isset($_POST['addpost']) and $rep_post_user) {
-						?><p class="messageerreur">Vous avez déjà partager un commentaire pour cet acteur</p>
+						?><p class="messageerreur">Vous avez déjà partagé un commentaire pour cet acteur</p>
 					<?php
 					}
 					else
