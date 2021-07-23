@@ -246,23 +246,58 @@ footer a{
 	padding-right: 20px;
 }
 
-#entete_commentaires form{
-	margin : 30px 10px -10px 0px;
-	text-align: right;
-}
-#entete_commentaires textarea{
-	margin-bottom: -20px;
-	border-radius: 5px;}
-
-
-#entete_commentaires .poucebas{
-	transform: translate(0px, 7px);
-	}
-
 #entete_commentaires_reactions{
 	display: flex;
 	align-items: center;
+	justify-content : space-between;
+	width:40%;
 }
+
+/*bouton nouveau commentaire*/
+input.bouton{
+	background: grey;
+	color:white;
+	border-radius: 5px;
+	font-size: 1.05em;
+	padding: 10px;
+	cursor: pointer;
+}
+
+/*like / dislike */
+
+#like_dislike{
+	display: flex;
+	align-items: center;
+	justify-content : space-between;	
+	width:25%;
+	font-style: 1.2em;
+
+}
+
+
+input.pouce{
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-color: white;
+	background-image: url("images/poucehaut.png");
+	background-position: top;
+	border :none;
+	width: 20px;
+	height: 20px;	
+	cursor: pointer;
+}
+
+input#dislike{
+	background-image: url("images/poucebas.png");
+	transform: translate(0px, 7px);
+
+}
+
+input#like{
+	background-image: url("images/poucehaut.png");
+}
+
+/*commentaires*/
 
 .cartouche_commentaires{
 	display: block;
@@ -287,21 +322,3 @@ footer a{
 	text-align: center;
 }
 
-input.pouce{
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-color: white;
-	background-image: url("images/poucehaut.png");
-	background-position: top;
-	border :none;
-	width: 20px;
-	height: 20px;	
-}
-
-input#dislike{
-	background-image: url("images/poucebas.png");
-}
-
-input#like{
-	background-image: url("images/poucehaut.png");
-}
