@@ -11,7 +11,7 @@
 		<?php include "headervierge.php" ?>
 		<h1>Régénération Mot de Passe</h1>
 			
-		<section id="mdpoubli">
+		<section class="formulaireGBAF" id="mdpoubli">
 			<?php 
 			//On charge la base de données//
 			include "accesBDDGBAF.php";
@@ -101,9 +101,10 @@
 					// Sinon on modifie le mot de passe et on affiche un message de succès//
 					else
 					{
+						$pass_hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
 						$req_majmdp = $bdd->prepare('UPDATE account SET password = :nv_password WHERE username = :login_post');
 						$req_majmdp->execute(array(
-							'nv_password' => $_POST['password'],
+							'nv_password' => $pass_hash,
 							'login_post' => $_POST['login']));
 
 						?><p> Votre mot de passe a été modifié avec succès</p>
@@ -111,8 +112,9 @@
 					}
 				} 
 			}
-				?>
-		<a href="connexionGBAF.php">Retour à la page connexion</a>	
+				
+		header('refresh:3, url=homepageGBAF.php')	
+		?>
 		</section>
 		
 
