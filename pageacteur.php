@@ -79,16 +79,20 @@ else
 					$rep_post=$req_post->fetch();
 					//si il n'y a pas de correspondance, c'est que le compteur doit être à 0//
 					if(!$rep_post)
-						{$rep_compteurpost=0;}
+						{$compteurpost=0;}
 					//sinon on compte le nombre de commentaires que l'on envoie dans une variable//
 					else
 					{
-						$req_compteurpost=$bdd->prepare('SELECT COUNT(id_post) FROM post where id_acteur=:id_acteur');
-						$rep_compteurpost=$req_compteurpost->execute(array('id_acteur'=>$id_acteur));
+						$req_compteurpost=$bdd->prepare('SELECT id_post FROM post where id_acteur=:id_acteur');
+						$req_compteurpost->execute(array('id_acteur'=>$id_acteur));
+						$compteur_post=0;	
+						while($rep_compteurpost=$req_compteurpost->fetch()){
+						$compteur_post=$compteur_post+1;
+						}
 					}
 					?>
 					<!-- on écit le nombre de commentaire(s) pour cet acteur en utilisant la variable $rep_compteurpost qui renvoie 0 si aucun comm sur cet acteur-->
-					<p><strong><?php echo $rep_compteurpost ?> Commentaire(s)</strong></p>
+					<p><strong><?php echo $compteur_post ?> Commentaire(s)</strong></p>
 					<div id="entete_commentaires_reactions">
 						<!--BOUTON NOUVEAU COMMENTAIRE-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" class="bouton">
@@ -164,7 +168,7 @@ else
 					?>
 				</div>
 					<?php //on sélectionne les données des tables post (le post et la date) et account (prénom) en filtrant sur l'acteur en question//
-					$req_post2=$bdd->prepare('SELECT post.post AS pp, date_format (post.date_add, "%d/%m/%Y") AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur ORDER BY pda DESC');
+					$req_post2=$bdd->prepare('SELECT post.post AS pp, date_format (post.date_add, "%d/%m/%Y") AS pda, account.prenom AS ap FROM post, account where post.id_user=account.id_user AND post.id_acteur=:id_acteur ORDER BY post.id_post DESC');
 					$req_post2->execute(array('id_acteur'=>$id_acteur));
 					while($rep_post2=$req_post2->fetch())
 					{ 
