@@ -30,7 +30,7 @@ else
 		//Appel de la base de données GBAF//
 		include "accesBDDGBAF.php";
 		//récupération de l'id de l'acteur dans l'URL dans une variable//
-		$id_acteur=$_GET['acteur'];
+		$id_acteur=htmlspecialchars($_GET['acteur']);
 		?>
 			<article id="pageacteur_description">
 			<?php 

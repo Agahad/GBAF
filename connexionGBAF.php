@@ -1,16 +1,3 @@
-<?php
-//On vérifie le statut de la session
-$statut_session = session_status();
-//si une session est active, on la clôture (lien déconnexion)
-	if ($statut_session==2) 
-	{
-		session_destroy();
-	}
-//sinon on affiche la page de connexion
-	else
-	{
-?>
-
 <!doctype html>
 <html lang="fr">
 	<head>
@@ -43,7 +30,5 @@ $statut_session = session_status();
 			
 		</section>
 	</body>
-<?php
-	}
-?>	
+
 </html>

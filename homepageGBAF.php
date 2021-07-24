@@ -40,6 +40,7 @@
 				$_SESSION['Nom'] = $resultat['nom'];
 				$_SESSION['Prenom'] = $resultat['prenom'];
 				$_SESSION['login'] = $resultat['username'];
+				$_SESSION['mdp']= $resultat['password'];
 				$_SESSION['question'] = $resultat['question'];
 				$_SESSION['reponse'] = $resultat['reponse'];
 				include "accueilGBAF.php";

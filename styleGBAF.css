@@ -255,12 +255,15 @@ footer a{
 
 /*bouton nouveau commentaire*/
 input.bouton{
-	background: grey;
-	color:white;
-	border-radius: 5px;
+	background: white;
+	color:black;
+	border-color: red;
+	border-width: 5px;
+	border-radius: 10px;
 	font-size: 1.05em;
 	padding: 10px;
 	cursor: pointer;
+	box-shadow: 2px 2px 2px;
 }
 
 /*like / dislike */

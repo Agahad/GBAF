@@ -45,8 +45,8 @@
 					{?>
 					<p class="messageerreur">Votre login existe déjà, veuillez le changer svp</p>
 					<form  method="post" action="inscriptionGBAF.php">
-						<label for="nom"> Nom </br> <input type="text" name="nom" value="<?php echo $_POST['nom'] ?>" required /></label></br>
-						<label for="prenom"> Prénom </br> <input type="text" name="prenom" value="<?php echo $_POST['prenom'] ?>" required /></label></br>
+						<label for="nom"> Nom </br> <input type="text" name="nom" value="<?php echo htmlspecialchars($_POST['nom']) ?>" required /></label></br>
+						<label for="prenom"> Prénom </br> <input type="text" name="prenom" value="<?php echo htmlspecialchars($_POST['prenom']) ?>" required /></label></br>
 						<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
 						<label for="password"> Mot de Passe </br> <input type="password" name="password" required /></label></br>
 						<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>
@@ -67,8 +67,8 @@
 					{?>
 					<p class="messageerreur">Vous avez saisi deux mots de passe différents, merci de vérifier votre saisie</p>
 					<form  method="post" action="inscriptionGBAF.php">
-						<label for="nom"> Nom </br> <input type="text" name="nom" value="<?php echo $_POST['nom'] ?>" required /></label></br>
-						<label for="prenom"> Prénom </br> <input type="text" name="prenom" value="<?php echo $_POST['prenom'] ?>" required /></label></br>
+						<label for="nom"> Nom </br> <input type="text" name="nom" value="<?php echo htmlspecialchars($_POST['nom']) ?>" required /></label></br>
+						<label for="prenom"> Prénom </br> <input type="text" name="prenom" value="<?php echo htmlspecialchars($_POST['prenom']) ?>" required /></label></br>
 						<label for="login"> Login </br> <input type="text" name="login" required /></label></br>
 						<label for="password"> Mot de Passe </br> <input type="password" name="password" required /></label></br>
 						<label for="verifpassword"> Vérification Mot de Passe </br> <input type="password" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label></br>

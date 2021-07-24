@@ -25,7 +25,7 @@ else
 		<?php include "header.php" ?>	
 		<section class="formulaireGBAF" id="newpostGBAF">
 			<h1>Ajouter ici votre commentaire sur xxx</h1>
-			<form method="post" action="pageacteur?acteur=$_GET['acteur'].php">
+			<form method="post" action="pageacteur?acteur=htmlspecialchars($_GET['acteur']).php">
 				<label for="post">Votre Commentaire :</label><br />
 				<textarea rows="5" cols="50" id="post" name="post" required /></textarea><br />
 				<input type="submit" value="Partager votre commentaire">

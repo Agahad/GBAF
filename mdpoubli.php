@@ -43,7 +43,7 @@
 				$resultat_mdp = $req_mdp->fetch();
 
 			//si un des critères est faux, on affiche message d'erreur//
-				if(!$resultat_mdp OR $_POST['QS']!==$resultat_mdp['question'] OR $_POST['Reponse_QS']!==$resultat_mdp['reponse'])//
+				if(!$resultat_mdp OR htmlspecialchars($_POST['QS'])!==$resultat_mdp['question'] OR htmlspecialchars($_POST['Reponse_QS'])!==$resultat_mdp['reponse'])//
 				{
 
 			?>
@@ -73,9 +73,9 @@
 					<p>Vous pouvez changer votre mot de passe</p>
 					
 					<form method="post" action="mdpoubli.php">
-						<input type="text" name="login" value=<?php echo $_POST['login']?> hidden />
-						<input type="text" name="QS" value="<?php echo $_POST['QS']?>" hidden/>
-						<input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?>  hidden/>
+						<input type="text" name="login" value=<?php echo htmlspecialchars($_POST['login'])?> hidden />
+						<input type="text" name="QS" value="<?php echo htmlspecialchars($_POST['QS'])?>" hidden/>
+						<input type="text" name="Reponse_QS" value=<?php echo htmlspecialchars($_POST['Reponse_QS'])?>  hidden/>
 						<label for="password"> Nouveau Mot de Passe <br /> <input type="password" id="password" name="password" required /></label><br />
 						<label for="verifpassword"> Vérification Mot de Passe <br /> <input type="password" id="verifpassword" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label><br />
 						<input type="submit" value="Envoyer">
@@ -88,9 +88,9 @@
 					?><p>Vous pouvez changer votre mot de passe</p>
 
 						<form method="post" action="mdpoubli.php">
-						<input type="text" name="login" value=<?php echo $_POST['login']?> hidden/>
-						<input type="text" name="QS" value="<?php echo $_POST['QS']?>" hidden/>
-						<input type="text" name="Reponse_QS" value=<?php echo $_POST['Reponse_QS']?> hidden/>
+						<input type="text" name="login" value=<?php echo htmlspecialchars($_POST['login'])?> hidden/>
+						<input type="text" name="QS" value="<?php echo htmlspecialchars($_POST['QS'])?>" hidden/>
+						<input type="text" name="Reponse_QS" value=<?php echo htmlspecialchars($_POST['Reponse_QS'])?> hidden/>
 						<label for="password2"> Nouveau Mot de Passe <br /> <input type="password" id="password2" name="password" required /></label><br />
 						<label for="verifpassword2"> Vérification Mot de Passe <br /> <input type="password" id="verifpassword2" name="verifpassword" placeholder="Resaisissez votre mot de passe" required /></label><br />
 						<input type="submit" value="Envoyer">
@@ -109,12 +109,11 @@
 
 						?><p> Votre mot de passe a été modifié avec succès</p>
 					<?php	
+						header('refresh:3, url=homepageGBAF.php');	
 					}
 				} 
 			}
-				
-		header('refresh:3, url=homepageGBAF.php')	
-		?>
+					?>
 		</section>
 		
 

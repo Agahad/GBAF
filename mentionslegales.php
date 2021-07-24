@@ -10,7 +10,7 @@
 	</head>
 	<body>
 	<?php include "headervierge.php" ?>
-	<h1>Mentions légales<h1>
+	<h1>Mentions légales</h1>
 	<p>IDENTITÉ
 Nom du site web : < Nom du site >
 Adresse : < http://nomdusite.domaine >

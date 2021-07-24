@@ -78,16 +78,16 @@ else
 			}
 		else//sinon hash le password et on met à jour les données dans la base de données//
 			{
-			$pass_hash=password_hash($_POST['password'], PASSWORD_DEFAULT);
+			$pass_hash=password_hash(htmlspecialchars($_POST['password']), PASSWORD_DEFAULT);
 			include "accesBDDGBAF.php";
 			$req_mc=$bdd->prepare('UPDATE account set nom=:nom, prenom=:prenom, username=:username, password=:password, question=:question, reponse=:reponse where id_user=:id');
 			$req_mc->execute(array(
-				'nom'=>$_POST['nom'],
-				'prenom'=>$_POST['prenom'],
-				'username'=>$_POST['login'],
+				'nom'=>htmlspecialchars($_POST['nom']),
+				'prenom'=>htmlspecialchars($_POST['prenom']),
+				'username'=>htmlspecialchars($_POST['login']),
 				'password'=>$pass_hash,
-				'question'=>$_POST['QS'],
-				'reponse'=>$_POST['Reponse_QS'],
+				'question'=>htmlspecialchars($_POST['QS']),
+				'reponse'=>htmlspecialchars($_POST['Reponse_QS']),
 				'id'=>$_SESSION['id']));
 			?>
 			<p class="messagesucces">Vos données ont été mises à jour, vous allez être redirigé vers l'accueil</p>

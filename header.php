@@ -9,7 +9,7 @@
 	<header>
 	<!-- Insertion du logo GBAF-->
 		<div id="logoGBAF">
-			<a href="accueilGBAF.php"><img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF"></a>
+			<a href="homepageGBAF.php"><img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF"></a>
 		</div>
 		<div id="cartouche_user"><!--Création du cartouche user-->
 			<ul>
