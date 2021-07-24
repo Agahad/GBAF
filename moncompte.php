@@ -4,7 +4,7 @@ if (!isset($_SESSION['Nom']))
 {
 include "headervierge.php";
 ?><p class="messageerreur">Vous devez être connecté pour accéder à cette page</p>
-<p><a href="homepageGBAF.php">Retour page d'accueil</a></p>
+<p><a href="index.php">Retour page d'accueil</a></p>
 <?php
 }
 //sinon on affiche la page//
@@ -92,7 +92,7 @@ else
 			?>
 			<p class="messagesucces">Vos données ont été mises à jour, vous allez être redirigé vers l'accueil</p>
 			<?php
-			header('refresh:3, url=homepageGBAF.php');
+			header('refresh:3, url=index.php');
 			}
 		include "footerGBAF.php" ?>
 	</body>
