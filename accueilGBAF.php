@@ -1,18 +1,16 @@
 <?php
+session_start();
 //si pas de session, active, on affiche un message d'erreur
 if (!isset($_SESSION['Nom'])) 
 {
 include "headervierge.php";
-?><p class="messageerreur">Vous devez être connecté pour accéder à cette page</p>
-<p><a href="homepageGBAF.php">Retour page d'accueil</a></p>
-<?php
+?><p class="messageerreur">Vous devez être connecté pour accéder à cette page<br />Vous allez être redirigé vers la page d'accueil</p>
+<?php header('refresh:3, url=homepageGBAF.php');
 }
-//sinon on affiche la page de connexion
+//sinon on affiche//
 else
 {
 ?>
-
-
 <!doctype html>
 <html lang="fr">
 	<head>

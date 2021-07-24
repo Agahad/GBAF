@@ -5,9 +5,8 @@ session_start();
 if (!isset($_SESSION['Nom'])) 
 {
 include "headervierge.php";
-?><p class="messageerreur">Vous devez être connecté pour accéder à cette page</p>
-<p><a href="homepageGBAF.php">Retour page d'accueil</a></p>
-<?php
+?><p class="messageerreur">Vous devez être connecté pour accéder à cette page<br />Vous allez être redirigé vers la page d'accueil</p>
+<?php header('refresh:3, url=homepageGBAF.php');
 }
 //sinon on affiche la page//
 else
@@ -191,7 +190,7 @@ else
 						?>
 						<div class="cartouche_commentaires">
 						<p><?php echo $rep_post2['ap'] ." le ". $rep_post2['pda']?></p>
-						<p><?php Echo $rep_post2['pp']?></p>
+						<p><em>"<?php Echo $rep_post2['pp']?>"</em></p>
 						</div>
 						<?php
 					}
