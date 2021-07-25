@@ -36,7 +36,6 @@ header{
 	display: flex;	
 	justify-content: space-between;
 	align-items : flex-end;
-	width: 1000px;
 	height: 150px;
 	margin: auto;
 	background: red;
@@ -324,4 +323,29 @@ input#like{
 #sedeconnecter{
 	text-align: center;
 }
+
+/* Responsive */
+
+/* charte pour smartphone*/
+@media all and (max-device-width: 480px){
+
+	body, header, footer{
+		width: auto;
+	}
+
+}
+
+
+/* charte pour tablettes*/
+
+@media all and (max-device-width: 1388px) and (min-device-width: 481px){
+
+	body, header, footer{
+		width: auto;
+		
+	}
+
+}
+
+
 
