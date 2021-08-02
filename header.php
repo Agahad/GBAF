@@ -10,7 +10,7 @@
 
 	<!-- Insertion du logo GBAF-->
 		<div id="logoGBAF">
-			<a href="accueilGBAF.php"><img src="images/logo GBAF.png" alt="logo GBAF" titre="logo GBAF"></a>
+			<a href="accueilGBAF.php"><img src="images/logo_GBAF.png" alt="logo GBAF"></a>
 		</div>
 		<div id="cartouche_user"><!--Création du cartouche user-->
 			<ul>
@@ -23,6 +23,7 @@
 				<li>
 					<div class="sedeconnecter"><a href="deconnexionGBAF.php" title="se déconnecter"><img src="images/sedeconnecter.png" alt="se déconnecter"></a></div>
 				</li><!--// bouton déconnexion picto off-->	
+			</ul>
 		</div>
 	</header>
 </html>

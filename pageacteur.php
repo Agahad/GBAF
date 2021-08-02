@@ -40,7 +40,7 @@ else
 
 			?>
 				<!--On affiche les informations demandées sur l'acteur dans la page-->
-				<h1><img src="images/<?php echo $reponse_acteur['logo']?>" alt"logo <?php echo $reponse_acteur['acteur'] ?>"></h1>
+				<h1><img src="images/<?php echo $reponse_acteur['logo']?>" alt="logo <?php echo $reponse_acteur['acteur'] ?>"></h1>
 				<h2><?php echo $reponse_acteur['acteur'] ?></h2>
 				<p><a href="www.<?php echo $reponse_acteur['acteur'] ?>.fr">www.<?php echo $reponse_acteur['acteur'] ?>.fr</a></p>
 				<p><?php echo $reponse_acteur['description'] ?></p>
@@ -91,7 +91,7 @@ else
 					}
 					?>
 					<!-- on écit le nombre de commentaire(s) pour cet acteur en utilisant la variable $rep_compteurpost qui renvoie 0 si aucun comm sur cet acteur-->
-					<p><strong><?php echo $compteur_post ?> Commentaire(s)</strong></p>
+					<h2><strong><?php echo $compteur_post ?> Commentaire(s)</strong></h2>
 					<div id="entete_commentaires_reactions">
 						<!--BOUTON NOUVEAU COMMENTAIRE-->
 						<form method="post" action="pageacteur.php?acteur=<?php echo $id_acteur?>" >

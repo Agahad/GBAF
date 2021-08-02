@@ -7,7 +7,6 @@
 		<title>GBAF</title>
 	</head>
 	<body>
-		<?php include "headervierge.php" ?>
 		<section id="page_connexion">
 			
 				<!-- En-tête du formulaire-->

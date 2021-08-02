@@ -13,7 +13,8 @@
 
 //si pas de données, on insère le formulaire de connexion + footer//
 	if(!isset($_POST['login']) AND !isset($_POST['mdp']))
-		{include "connexionGBAF.php";
+		{include "headervierge.php";
+		 include "connexionGBAF.php";
 		 include "footerGBAF.php";
 		}
 //sinon, on charge les données filtrées sur le user et on créé une variable pour vérifier le password hashé//
