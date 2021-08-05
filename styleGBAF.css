@@ -158,7 +158,7 @@ footer a{
 #Section_Presentation .image {
 	background-size: cover;
 	background-position: top;
-	width: 800px;
+	width: 80%;
 	height: 150px;
 	margin-left: 100px;
 	border-radius: 5px;
@@ -189,8 +189,11 @@ footer a{
 	margin: auto;
 }
 
+#description_acteur {
+	width:600px;
+}
+
 #description_acteur p{
-	width: 600px;
 	font-size: 0.9em;
 	padding: 2px 5px;
 /*insertion ... à la fin de la description*/
@@ -340,12 +343,25 @@ input#like{
 
 @media all and (max-device-width: 1388px) and (min-device-width: 481px){
 
-	body, header, footer{
-		width: auto;
+	body{
+		width: 95%;
 		
+	}
+	section, article{
+		margin-left: 5px;
+		margin-right: 5px;
 	}
 
 }
 
+@media all and (max-device-width: 1388px) and (min-device-width: 481px) and (orientation: portrait) {
+
+	#description_acteur {
+		width:300px;
+	}
+	#entete_commentaires_reactions{
+		flex-direction: column;
+	}
+}
 
 
