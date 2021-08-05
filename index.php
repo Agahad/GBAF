@@ -12,13 +12,14 @@
 	<?php
 
 //si pas de données, on insère le formulaire de connexion + footer//
-	if(!isset($_POST['login']) AND !isset($_POST['mdp']))
+	if(!isset($_POST['login']) AND !isset($_POST['mdp']) OR $_POST['login']=='')
 		{include "headervierge.php";
 		 include "connexionGBAF.php";
 		 include "footerGBAF.php";
 		}
 //sinon, on charge les données filtrées sur le user et on créé une variable pour vérifier le password hashé//
 	else{
+		include "headervierge.php";
 		include "accesBDDGBAF.php";
 		$req = $bdd->prepare('SELECT * FROM account WHERE username = :login');
 		$req->execute(array('login' => $_POST['login']));
@@ -28,7 +29,7 @@
 			//si le user n'existe pas ou si le mdp est incorrect => on affiche formulaire de connexion + message erreur + footer//
 			if(!$resultat OR !$isPasswordCorrect)
 			{
-				include "headervierge.php";
+				
 				include "connexionGBAF.php";
 				?><p class="messagerreur">Votre login et/ou votre mot de passe sont incorrects</p>
 				<?php
