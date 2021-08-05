@@ -109,7 +109,7 @@
 
 						?><p> Votre mot de passe a été modifié avec succès</p>
 					<?php	
-						header('refresh:3, url=homepageGBAF.php');	
+						header('refresh:3, url=index.php');	
 					}
 				} 
 			}
