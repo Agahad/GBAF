@@ -28,6 +28,7 @@
 			//si le user n'existe pas ou si le mdp est incorrect => on affiche formulaire de connexion + message erreur + footer//
 			if(!$resultat OR !$isPasswordCorrect)
 			{
+				include "headervierge.php";
 				include "connexionGBAF.php";
 				?><p class="messagerreur">Votre login et/ou votre mot de passe sont incorrects</p>
 				<?php
