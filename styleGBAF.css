@@ -160,7 +160,7 @@ footer a{
 	background-position: top;
 	width: 80%;
 	height: 150px;
-	margin-left: 100px;
+	margin-left: 10%;
 	border-radius: 5px;
 	margin-bottom: 10px;
 	box-shadow: 2px 2px 4px black;
@@ -332,10 +332,56 @@ input#like{
 /* charte pour smartphone*/
 @media all and (max-device-width: 480px){
 
-	body, header, footer{
-		width: auto;
+	body{
+		width: 95%;
+	}
+	.formulaireGBAF form{
+		width: 90%;
+		margin: 5px;
+		padding-left: 5px;
+
 	}
 
+	.formulaireGBAF form input{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+	.formulaireGBAF form select{
+		width: 100%;
+		margin-bottom: 10px;
+	}
+	
+	h1 {
+		text-align: start;
+	}
+	#cartouche_acteur{
+		flex-direction: column;
+		margin:5px;
+		padding: 0%;
+		height: 300px;
+
+	}
+	#description_acteur {
+		width:300px;
+	}
+
+	#texte_acteur{
+		margin-top: 0;
+	}
+
+	#lire_la_suite{
+		margin-top: 0%;
+	}
+
+	#entete_commentaires{
+		text-align: center	;
+		flex-direction: column;
+	}
+
+	#entete_commentaires_reactions{
+		flex-direction: column;
+	}
 }
 
 
