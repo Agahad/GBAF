@@ -103,7 +103,7 @@
 						'reponse'=>$_POST['Reponse_QS']));
 					?>
 					<p class="messagesucces">Votre compte a bien été créé, vous allez être redirigé vers la page d'accueil</p>
-					<?php header("refresh:3; url=homepageGBAF.php");
+					<?php header("refresh:3; url=index.php");
 					
 					}
 				}
