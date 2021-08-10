@@ -346,6 +346,15 @@ input#like{
 	body{
 		width: 95%;
 	}
+
+	#cartouche_user{
+		max-width: 60%;
+	}
+
+	#entete_commentaires_reactions {
+		width: 100%;
+	}
+	
 	.formulaireGBAF form{
 		width: 90%;
 		margin: 5px;
