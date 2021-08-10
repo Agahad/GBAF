@@ -22,9 +22,9 @@ else
 	</head>
 
 	
-	<body>
+	<body class="site">
 		<?php include "header.php" ?>	
-		<section id="pageacteur">
+		<section id="pageacteur" class="content">
 		<?php 
 		//Appel de la base de données GBAF//
 		include "accesBDDGBAF.php";

@@ -20,11 +20,10 @@ else
 		<title>GBAF</title>
 	</head>
 
-
-	<body>
+	<body class="site">
 		<?php include "header.php" ?>
 
-		<div id="accueil">
+		<div id="accueil" class="content">
 			
 			<section id="Section_Presentation">
 				<h1>Le Groupement Banque Assurance Français (GBAF)</h1>
@@ -72,8 +71,8 @@ else
 				}
 				?>
 			</section>
-		<?php include "footerGBAF.php" ?>
 		</div>
+			<?php include "footerGBAF.php" ?>
 	</body>	
 <?php } ?>
 </html>

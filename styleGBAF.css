@@ -10,6 +10,17 @@ body{
 	text-align: justify;
 }
 
+/*code css pour fixer le footer en bas: on calibre la page complète à 100vh (toute la page visible) et on demande au contenu compris entre le header et le footer d'occuper tout l'espace libre*/
+.site{
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+.content{
+	flex-grow: 1;
+}
+
 h1{
 	color : red;
 	font-family: "Arial", "sans-serif";
@@ -39,6 +50,7 @@ header{
 	height: 150px;
 	margin: auto;
 	background: red;
+	width: 100%;
 }
 
 #logoGBAF{
@@ -93,7 +105,6 @@ footer{
 	margin-top: 20px;
 	padding-top: 5px;
 	border-top: 2px red solid;
-
 }
 
 footer a{

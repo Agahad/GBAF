@@ -6,9 +6,8 @@
 		<link rel="stylesheet" href="styleGBAF.css"/> 
 		<title>GBAF</title>
 	</head>
-	<body>
-		<section id="page_connexion">
-			
+	<body class="site">
+		<section id="page_connexion" class="content">		
 				<!-- En-tête du formulaire-->
 				<h1>Connexion</h1>
 				<p>	Merci de renseigner votre login et votre mot de passe pour accéder au service GBAF </p>
@@ -25,9 +24,7 @@
 					<!-- sinon on ouvre une session-->
 
 				<div id="lienmdpoubli"><p><a href="mdpoubli.php">Mot de passe oublié?</a></p></div><!-- lien vers page question secrète-->
-				<p><em>Première connexion ? <a href="inscriptionGBAF.php">Cliquez ici pour créer votre compte</a></em></p>
-			
+				<p><em>Première connexion ? <a href="inscriptionGBAF.php">Cliquez ici pour créer votre compte</a></em></p>			
 		</section>
 	</body>
-
 </html>

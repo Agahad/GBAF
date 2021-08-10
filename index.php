@@ -7,7 +7,7 @@
 		<title>GBAF</title>
 	</head>
 	
-	<body>
+	<body class="site">
 
 	<?php
 
